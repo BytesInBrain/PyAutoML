@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/new-user.css">
+  <script src="/static/js/new-user.js"></script>
+  <title>Visualize</title>
+  <style>
+    .Yeon-Sung {
+      font-family: 'Yeon Sung', cursive;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark rounded" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample10">
+      <ul class="navbar-nav">
+        <li   style="margin-left:300px" class="nav-item text-center">
+          <a class="nav-link" style="color:#f2f4d1;" href="{{url_for("About")}}">About</a>
+        </li>
+        <li  style="margin-left:340px;color:#f2f4d1;" class="nav-item active text-center ">
+            <h1 style="color:#930077;" class="masthead-brand Yeon-Sung text-center">Rohit</h1>
+        </li>
+        <li  style="margin-left:400px;" class="nav-item text-center">
+          <a  style="color:#f2f4d1;"class="nav-link" href="{{url_for("getting_started")}}">Users</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <h3 class="text-center">Predict</h3>
+      <p class="lead">Add the values below</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <form class="needs-validation" enctype="multipart/form-data" method="POST" novalidate  >
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="file">Choose Your file</label>
+
+                <div class="fallback">
+                  <input name="file" type="file" multiple />
+                </div>
+
+            </div>
+          </div>
+          <hr class="mb-4">
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">Made by Rohit, for Rohit</p>
+    </footer>
+  </div>
+
+</body>
+
+</html>

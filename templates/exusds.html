@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Visualize</title>
+  <style>
+    .Yeon-Sung {
+      font-family: 'Yeon Sung', cursive;
+    }
+
+    .themed-grid-col {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: rgba(86, 61, 124, .15);
+      border: 1px solid rgba(86, 61, 124, .2);
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark rounded" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample10">
+      <ul class="navbar-nav">
+        <li   style="margin-left:300px" class="nav-item text-center">
+          <a class="nav-link" style="color:#f2f4d1;" href="{{url_for("About")}}">About</a>
+        </li>
+        <li  style="margin-left:340px;color:#f2f4d1;" class="nav-item active text-center ">
+            <h1 style="color:#930077;" class="masthead-brand Yeon-Sung text-center">Rohit</h1>
+        </li>
+        <li  style="margin-left:400px;" class="nav-item text-center">
+          <a  style="color:#f2f4d1;"class="nav-link" href="{{url_for("getting_started")}}">Users</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <h1>Hello {{user}}</h1>
+    <p class="lead">These are your present datasets you can visualize and predict</p>
+    <p>You can Add new ones to your list</p>
+    {%for d in dataname%}
+    <div class="row mb-3">
+      <div class="col-4 themed-grid-col">{{d[0]}}</div>
+      <div class="col-4 themed-grid-col">
+        <div class="btn-group">
+          <a href="/existing-user/{{user}}/{{d[0]}}/visualize"><button type="button" class="btn btn-danger">Visualize</button></a>
+          <button type="button" data-toggle="dropdown" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" style="overflow:visible;">
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/LR">Logistic Regression</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/KNC">KNeighborsClassifier</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/SVM">Support Vector Machine</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/KSVM">Kernel SVM</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/NB">Naïve Bayes</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/DT">Decesion Tree</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/RFC">Random Forest Classification</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/graphs">Graphs</a></li>
+            <li><a class="dropdown-item" href="/existing-user/{{user}}/{{d[0]}}/visualize/download-dataset">Download Dataset</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="col-4 themed-grid-col"><a href="/existing-user/{{user}}/{{d[0]}}/remove"><button type="button" class="btn btn-primary">Remove</button></a></div>
+    </div>
+    {%endfor%}
+    <button onclick="window.location.href='/existing-user/{{user}}/add-dataset'" type="button" class="btn btn-secondary btn-lg btn-block">Add a Dataset</button>
+    <footer class="mastfoot mt-auto">
+      <div style="margin-top:200px;" class="inner">
+        <p style="text-align:center; ">Made for<a href="#"> Rohit</a>, by <a href="#"> Rohit</a>.</p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    var main = function(){
+      $('.dropdown-toggle').click(function(){
+          $('.dropdrown-menu').dropdown('toggle')
+      });
+    };
+
+    $(document).ready(main);
+    </script>
+</body>
+
+</html>
