@@ -23,7 +23,7 @@ def set_dataframe(nameofdf):
                 remove_Col(id)
     remove_Col("Unnamed: 32")
     return df
-#Fucked up a whole night for this without sleeping
+#F ed up a whole night for this without sleeping
 def remove_Col(*args):
     for arg in args:
         try:
